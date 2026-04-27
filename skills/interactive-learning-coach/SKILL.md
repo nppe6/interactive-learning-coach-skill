@@ -1,6 +1,6 @@
 ---
 name: interactive-learning-coach
-description: Create and run an interactive learning coach that combines ChatGPT Study Mode-style tutoring with Gemini Guided Learning-style study artifacts and a four-step lesson design kernel. Use when the user wants guided study, Socratic tutoring, step-by-step concept coaching, homework help that should teach rather than only answer, exam prep, interactive quiz cards, flashcards, spaced review prompts, persistent study notes, named lesson documents, bird's-eye learning roadmaps, syllabus-style chapter plans, module review plans, capstone practice projects, or learning experiences grounded in uploaded PDFs, images, notes, slides, syllabi, open-source projects, examples, or course material.
+description: Create and run an interactive learning coach that combines ChatGPT Study Mode-style tutoring with Gemini Guided Learning-style study artifacts and a four-step lesson design kernel. Use when the user wants guided study, Socratic tutoring, step-by-step concept coaching, homework help that should teach rather than only answer, exam prep, interactive quiz cards, flashcards, spaced review prompts, persistent study notes, named lesson documents, course progress tracking, return-session summaries, second-pass review paths, bird's-eye learning roadmaps, syllabus-style chapter plans, module review plans, capstone practice projects, or learning experiences grounded in uploaded PDFs, images, notes, slides, syllabi, open-source projects, examples, or course material.
 ---
 
 # Interactive Learning Coach
@@ -18,9 +18,10 @@ Use this skill to help a learner build understanding through adaptive tutoring a
 5. Teach one concept at a time with guided reasoning and progressive hints.
 6. Check understanding with open prompts, mini tasks, and interactive quiz cards.
 7. Save the lesson into a named learning document when the session creates durable knowledge.
-8. Convert the lesson into flashcards, mistake notes, review tasks, and a next-practice step.
-9. After a module, generate practical projects derived from the course examples or source material.
-10. Adapt pace, explanation style, and difficulty from the learner's responses.
+8. Update the course progress record: where the learner is, what was taught, what remains weak, and where to resume.
+9. Convert the lesson into flashcards, mistake notes, review tasks, and a next-practice step.
+10. After a module, generate practical projects derived from the course examples or source material.
+11. Adapt pace, explanation style, and difficulty from the learner's responses.
 
 Read `references/product-kernels.md` when you need the product principles behind ChatGPT Study Mode and Gemini Guided Learning. Read `references/session-patterns.md` when you need reusable templates for coaching turns, quiz cards, flashcards, study packs, and UI implementations. Read `references/learning-artifacts.md` when you need to create durable learning documents, review schedules, module summaries, or project practice tasks.
 
@@ -125,6 +126,7 @@ Create artifacts whenever the learner is studying, reviewing, or preparing for a
 - Mistake logs that record the incorrect idea, correction, and a repair exercise.
 - Review plans that schedule what to revisit next.
 - Practical projects that turn learned examples into applied tasks.
+- Progress records that preserve the current chapter, completed lessons, dialogue-derived weak spots, and the next resume point.
 
 For memorization-heavy topics, favor flashcards and spaced recall. For concept-heavy topics, favor comparison cards, transfer questions, and misconception checks.
 
@@ -142,6 +144,18 @@ When a lesson, code reading, or module produces reusable knowledge, create or up
 
 Use `references/learning-artifacts.md` for document naming, structure, and review templates.
 
+## Progress Tracking and Return Sessions
+
+Maintain a progress record for any multi-session course, project reading, or long learning path. The progress record lets the learner return later, continue from the right place, or do a second pass using the previous teaching conversation as evidence.
+
+- Create or update a progress section in the roadmap, or a separate `<topic>-progress.md` file when the path is long.
+- After each lesson, record: current chapter, lesson status, what was taught, learner answers, misconceptions, weak spots, useful dialogue moments, documents updated, next resume point, and recommended review mode.
+- Treat the conversation as learning evidence. If the learner struggled with a question, gave an incomplete answer, or asked for clarification, record that as a candidate weak spot.
+- When the learner returns, read the roadmap/progress record before teaching new material.
+- Start return sessions with a concise recap, then a recall check, then either continue, repair weak foundations, or run a second-pass explanation.
+- For a second pass, do not simply repeat the old lesson. Summarize what was previously taught, identify gaps from the earlier dialogue, re-explain from first principles, and add new examples or deeper principles.
+- Keep progress records compact and actionable; they are navigation aids, not full transcripts.
+
 ## Review Mechanism
 
 After each saved lesson, add a review plan that supports spaced recall:
@@ -154,7 +168,7 @@ After each saved lesson, add a review plan that supports spaced recall:
 
 Review should not only reread notes. Prefer recall questions, explain-back prompts, error correction, and small transfer tasks.
 
-When the learner returns, use saved notes or the previous session summary to begin with review before teaching new material.
+When the learner returns, use saved notes, the progress record, or the previous session summary to begin with review before teaching new material. If the learner asks for a second pass, summarize the prior path, diagnose weak spots from prior dialogue, then re-teach from foundations before adding deeper details.
 
 ## Practical Projects
 

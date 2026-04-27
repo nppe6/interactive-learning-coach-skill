@@ -183,6 +183,39 @@ Next practice:
 - <small next task>
 ```
 
+## Progress Checkpoint Pattern
+
+Use at the end of each substantial lesson in a multi-session path:
+
+```text
+Progress saved:
+- Current chapter: <chapter>
+- Completed today: <lesson/concepts>
+- Evidence: <what the learner answered or built>
+- Weak spots: <misconceptions or uncertain areas>
+- Next resume point: <specific next step>
+- Recommended next mode: <continue / review / repair / second pass / project>
+```
+
+Update the roadmap or `<topic>-progress.md`. Keep it compact and do not paste a full transcript.
+
+## Return or Second-Pass Pattern
+
+Use when the learner returns to the same project/course or asks to relearn it:
+
+```text
+I found the previous progress record. Before we continue:
+
+Previously covered: <short summary>
+Last position: <chapter/lesson>
+Known weak spots: <weak spots from dialogue>
+Recommended mode: <continue / review / repair / second pass / project>
+
+I will first recap the prior model, then ask one recall question. If the foundation is shaky, I will re-teach from first principles before adding new details.
+```
+
+For a second pass, do not repeat the old lesson verbatim. Use prior dialogue as evidence: summarize, repair weak spots, add a clearer model, then deepen with new examples.
+
 ## Saved Lesson Note Pattern
 
 Use when the learner should be able to return later and review the lesson:
@@ -193,9 +226,11 @@ I saved this as <path/to/topic-name.md>.
 The note includes:
 - Core explanation
 - Worked example
+- Dialogue-derived teaching notes
 - Quiz cards
 - Flashcards
 - Review plan
+- Progress checkpoint
 - Next practice
 ```
 
@@ -213,7 +248,7 @@ Before we add new material, let's recover what you already learned.
 3. <common mistake repair>
 ```
 
-After the learner answers, re-teach only the weak part and update the review queue.
+After the learner answers, re-teach only the weak part and update the review queue plus the progress record.
 
 ## Practice Project Pattern
 

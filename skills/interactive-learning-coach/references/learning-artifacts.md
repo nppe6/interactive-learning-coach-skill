@@ -11,6 +11,7 @@ Create or update a Markdown document when:
 - The learner completes a module, chapter, or source-code reading.
 - The user asks to save notes, produce a study guide, or continue later.
 - The session generates flashcards, quiz cards, a mistake log, or a review plan.
+- A multi-session learning path needs progress tracking, return-session support, or second-pass review.
 
 Do not create a document for a tiny one-off answer unless the user asks to save it.
 
@@ -32,6 +33,7 @@ Examples:
 
 ```text
 learning-notes/react-learning-roadmap.md
+learning-notes/react-learning-progress.md
 learning-notes/react-hooks-useeffect.md
 learning-notes/vue-source-code-roadmap.md
 learning-notes/linear-algebra-eigenvalues.md
@@ -98,6 +100,14 @@ Keep the roadmap learner-facing. It should help the learner know what will be le
 - Guided drill: <small task close to lesson examples>
 - Mini project: <transfer task after several chapters>
 - Capstone: <module-level practical project>
+
+## Progress State
+
+- Current chapter: <chapter or lesson>
+- Last completed lesson: <lesson document>
+- Next resume point: <where to continue>
+- Current weak spots: <short list>
+- Recommended next mode: <continue / review / repair / second pass / project>
 
 ## Review Queue
 
@@ -188,6 +198,12 @@ For open-source projects, adapt the learning route to code-reading layers. Keep 
 - Misunderstanding: <incorrect idea>
   Correction: <correct idea>
 
+## Dialogue-Derived Teaching Notes
+
+- Learner answer or question: <what the learner said>
+- Signal: <understood / partial / misconception / confusion / curiosity>
+- Teaching adjustment: <how the next explanation should change>
+
 ## Quiz Cards
 
 1. Question: <stem>
@@ -243,6 +259,52 @@ Use an index when a learning path has multiple documents.
 - Mini project: <task>
 - Capstone: <task>
 ```
+
+## Progress Record Template
+
+Use this as a separate `<topic>-progress.md` file for long learning paths, or embed the same fields in the roadmap.
+
+```markdown
+# <Course, Project, or Topic> Progress
+
+## Current Position
+
+- Current chapter: <chapter>
+- Current lesson: <lesson>
+- Last completed document: <path>
+- Next resume point: <specific next step>
+- Recommended mode: <continue / review / repair / second pass / project>
+
+## Completed Lessons
+
+| Lesson | Document | Evidence of Understanding | Weak Spots | Status |
+| --- | --- | --- | --- | --- |
+| <lesson> | <file> | <evidence> | <weak spots> | Complete/Needs review |
+
+## Dialogue Signals
+
+| Moment | Learner Signal | Interpretation | Follow-up |
+| --- | --- | --- | --- |
+| <question/answer> | <signal> | <what it means> | <repair or deepen> |
+
+## Second-Pass Plan
+
+- What to summarize first: <prior content>
+- Foundations to re-teach: <basics>
+- Gaps to repair: <weak spots>
+- New examples to add: <examples>
+- Deeper principles to add: <principles>
+```
+
+## Return Session Pattern
+
+When the learner comes back, first read the roadmap/progress record and then choose a mode:
+
+1. Continue: proceed from the next resume point.
+2. Review: run recall questions from completed lessons.
+3. Repair: re-teach weak spots detected from prior dialogue.
+4. Second pass: summarize the old path, re-explain foundations, then add deeper examples.
+5. Project: start or continue the practical task.
 
 ## Review Session Pattern
 
