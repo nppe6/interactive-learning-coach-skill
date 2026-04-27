@@ -1,0 +1,4 @@
+interface:
+  display_name: "Interactive Learning Coach"
+  short_description: "Roadmapped tutoring with four-step lesson design"
+  default_prompt: "Use $interactive-learning-coach to create a roadmap, design each lesson with the four-step teaching kernel, teach interactively, save notes, schedule review, and create practice projects."
