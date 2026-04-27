@@ -30,7 +30,7 @@ Quick check: <diagnostic question>
 
 ## Bird's-Eye Roadmap Pattern
 
-Use before deep teaching begins for a course, open-source project, or large topic:
+Use before deep teaching begins for a course, open-source project, or large topic. If source files are available, inspect the repository tree and entry files before producing this. Keep it as a learner-facing plan, not an architecture dump:
 
 ```text
 Before we enter the first lesson, here is the bird's-eye learning plan.
@@ -38,10 +38,14 @@ Before we enter the first lesson, here is the bird's-eye learning plan.
 Goal: <goal>
 Assumed level: <level>
 
+Source inspection:
+- I checked: <files/materials>
+- Still provisional: <assumptions to verify later>
+
 Route:
-1. <chapter> - <main focus>
-2. <chapter> - <main focus>
-3. <chapter> - <main focus>
+1. <chapter> - <learner outcome> - read <files/materials> - build/review <practice>
+2. <chapter> - <learner outcome> - read <files/materials> - build/review <practice>
+3. <chapter> - <learner outcome> - read <files/materials> - build/review <practice>
 
 For each chapter, I will gradually add:
 - Detailed lesson notes
@@ -50,10 +54,31 @@ For each chapter, I will gradually add:
 - Practice or project tasks
 
 I will save the roadmap as <learning-notes/topic-roadmap.md> and refine it as we learn.
-First diagnostic check: <question>
+
+First lesson will start with:
+1. A minimal mental model.
+2. One concrete walkthrough.
+3. Then a light check question.
 ```
 
-If file writing is unavailable, output the roadmap as Markdown and name the intended file.
+If file writing is unavailable, output the roadmap as Markdown and name the intended file. If writing is available, re-open the file and verify the text is readable before continuing.
+
+## Project Teaching Startup Pattern
+
+Use when teaching a codebase with a later migration goal:
+
+```text
+Today we are not migrating yet. First we need one reliable mental model of the original project.
+
+Lesson goal: <one thing the learner can explain after this lesson>
+Minimum viable understanding: <one sentence>
+Walkthrough target: <one concrete request/flow and files to inspect>
+Migration lens: <what this will later become in the target stack>
+
+After the walkthrough, I will ask one light check question and save the lesson note.
+```
+
+Do not ask architecture-mapping questions such as "what NestJS module should this be?" until the learner has seen the original flow and its responsibilities.
 
 ## Socratic Hint Ladder
 

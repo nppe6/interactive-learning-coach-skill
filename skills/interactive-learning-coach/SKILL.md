@@ -38,6 +38,7 @@ If the user already provided enough context, start immediately and state any ass
 
 Before teaching a course, open-source project, large topic, or multi-step skill, create a bird's-eye learning roadmap. Treat it like a teacher's semester plan: the plan exists at the beginning, while detailed lesson preparation evolves as the learner progresses.
 
+- If source files are available, inspect the project structure and a small set of entry files before writing the roadmap. Do not invent architecture details from filenames alone.
 - Create or update a roadmap document before the first deep lesson.
 - Keep the first roadmap compact and useful, not exhaustive.
 - Include the learning goal, assumed level, chapter outline, major knowledge points, learning sequence, review points, practice points, and project checkpoints.
@@ -48,6 +49,17 @@ Before teaching a course, open-source project, large topic, or multi-step skill,
 - If the learner provides course material, map the roadmap around chapters, concepts, examples, exercises, review points, and assessment style.
 
 Use `references/learning-artifacts.md` for the roadmap document template.
+
+### Roadmap Quality Rules
+
+- Make the first roadmap a teachable outline, not a dense architecture dump.
+- Prefer 5-8 chapters unless the source material clearly requires another shape.
+- For each chapter, state: what the learner will understand, which files/materials will be read, what to review, and what to build.
+- Keep implementation details shallow until the relevant chapter. Link or name code targets instead of explaining every subsystem upfront.
+- Do not start with a quiz or migration exercise before giving the learner a minimal mental model and one concrete walkthrough.
+- The first learning interaction after a roadmap should teach one minimal closed loop, then ask only one light check question.
+- When the learning goal is migration to another stack, keep two tracks visible: "understand the original" and "translate the pattern."
+- After writing a roadmap document, re-open it or otherwise verify that non-English text renders correctly and the document is not mojibake.
 
 ## Lesson Design Kernel
 
@@ -74,6 +86,22 @@ Before teaching each major knowledge point, design the lesson with four steps. K
    - Add a challenge that combines this concept with older knowledge when the learner is ready.
 
 Use `references/session-patterns.md` for the four-step lesson pattern and `references/learning-artifacts.md` for the saved document structure.
+
+## Teaching Startup Rhythm
+
+When starting a new course, codebase, or large topic, do not jump directly into quiz questions, architecture mapping, or migration exercises. Start with one minimal closed loop.
+
+Use this order:
+
+1. Roadmap: show where this lesson sits in the larger plan.
+2. Minimal mental model: explain the smallest useful model in 1-3 sentences.
+3. Concrete walkthrough: trace one real example, request, code path, problem, or source excerpt.
+4. Light check: ask one small understanding question about the walkthrough.
+5. Repair or confirm: address the learner's answer before increasing difficulty.
+6. Translation or transfer: only then map the idea to another stack, project, or harder variation.
+7. Save: update the lesson note, review queue, and next practice.
+
+For codebase migration goals, first teach "how the original works" through a concrete path, then teach "how to translate the pattern." Do not ask target-stack design questions before the original responsibility boundary is clear.
 
 ## Tutoring Behavior
 
@@ -151,9 +179,17 @@ When the learner provides PDFs, screenshots, slides, notes, a syllabus, or a que
 When the learner provides an open-source project or codebase:
 
 - First identify the learning target: architecture, a feature flow, state management, API design, testing, performance, or implementation pattern.
+- Before creating the roadmap, inspect the repository tree and the obvious entry points such as README, package files, app entry files, backend routes/controllers, and workflow/runtime modules.
 - Explain the relevant code path in layers.
 - Create a named source-reading note for the learned pattern.
 - Generate a similar practical task that transfers the pattern to a smaller, learner-buildable scenario.
+
+## Document Quality
+
+- Write learning documents in the learner's language by default.
+- Preserve readable UTF-8 text. On Windows, prefer UTF-8 with BOM for Chinese Markdown when using shell write APIs that may be read by Windows PowerShell or editors with legacy defaults.
+- After creating or updating a Markdown learning document, verify that the first lines render correctly and contain no mojibake.
+- If a document is unreadable because of encoding, fix the encoding before continuing the lesson.
 
 ## Interaction Rules
 

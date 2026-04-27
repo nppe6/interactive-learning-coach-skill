@@ -44,7 +44,11 @@ Use lowercase ASCII slugs for filenames unless the existing project uses another
 
 ## Roadmap Document Template
 
-Create this before deep teaching begins for a course, open-source project, or large topic. The first version should be a bird's-eye plan, not a fully detailed textbook. Refine it as the learner progresses.
+Create this before deep teaching begins for a course, open-source project, or large topic. The first version should be a bird's-eye plan, not a fully detailed textbook or architecture dump. Refine it as the learner progresses.
+
+For codebase learning, inspect the repository tree and entry files before filling this template. If inspection is incomplete, mark claims as provisional.
+
+Keep the roadmap learner-facing. It should help the learner know what will be learned, why it matters, which files or materials will be opened, how review will work, and what practical output will be built.
 
 ```markdown
 # <Course, Project, or Topic> Learning Roadmap
@@ -59,24 +63,34 @@ Create this before deep teaching begins for a course, open-source project, or la
 
 ## Bird's-Eye Overview
 
-<Short overview of what this topic/project is about and how the pieces relate.>
+<Short overview in the learner's language. Explain the product/problem first, then the major moving parts. Avoid low-level implementation details until chapter notes.>
+
+## Source Inspection
+
+- Entry points inspected: <files or materials>
+- Important areas to inspect later: <files or modules>
+- Provisional assumptions: <claims that still need verification>
 
 ## Learning Route
 
-| Chapter | Focus | Key Knowledge Points | Review Focus | Practice / Project Point | Status |
-| --- | --- | --- | --- | --- | --- |
-| 1 | <focus> | <points> | <review> | <practice> | Planned |
-| 2 | <focus> | <points> | <review> | <practice> | Planned |
+| Chapter | Learner Outcome | Materials / Files | Key Ideas | Review Focus | Practice / Project Point | Status |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | <what the learner can explain/do> | <files/materials> | <2-4 ideas> | <review> | <practice> | Planned |
+| 2 | <what the learner can explain/do> | <files/materials> | <2-4 ideas> | <review> | <practice> | Planned |
 
 ## Chapter Plan
 
 ### Chapter 1: <Name>
 
 - Why it matters: <reason>
+- Minimal mental model: <one sentence>
 - Learn: <concepts>
+- Read or inspect: <files/materials>
 - Watch for: <common mistakes>
+- First walkthrough: <one concrete flow/example before quiz>
 - Practice: <exercise or mini task>
 - Review: <recall or transfer task>
+- Translation track: <how this maps to the target stack, if applicable>
 - Document: `<future-topic-note>.md`
 
 ## Project Ladder
@@ -96,7 +110,7 @@ Create this before deep teaching begins for a course, open-source project, or la
 - <Question to resolve as the learner goes deeper>
 ```
 
-For open-source projects, adapt the learning route to code-reading layers:
+For open-source projects, adapt the learning route to code-reading layers. Keep the first pass shallow and defer deep details to chapter notes:
 
 1. Product purpose and user flow.
 2. Repository structure and build/run path.
