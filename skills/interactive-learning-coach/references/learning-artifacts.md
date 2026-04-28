@@ -215,6 +215,20 @@ For open-source projects, adapt the learning route to code-reading layers. Keep 
 - Misunderstanding: <incorrect idea>
   Correction: <correct idea>
 
+## Technology Translation Map
+
+Use when the learner's goal includes migrating or reimplementing in another stack.
+
+| Source Concept | Target Equivalent | Shared Responsibility | Caveat |
+| --- | --- | --- | --- |
+| <source> | <target> | <responsibility> | <not identical because...> |
+
+## Concept Contrast Cards
+
+| Pair | A Handles | B Handles | Confusion To Avoid | Project Example |
+| --- | --- | --- | --- | --- |
+| <A vs B> | <A role> | <B role> | <misconception> | <file/flow> |
+
 ## Dialogue-Derived Teaching Notes
 
 - Learner answer or question: <what the learner said>
@@ -409,6 +423,40 @@ Then:
 - Re-teach only the weak concept.
 - Add one transfer question.
 - Update the review queue.
+
+## Implementation Handoff Brief Template
+
+Use when the learner chooses to start practice or implementation.
+
+```markdown
+# Practice Brief: <Task Name>
+
+## Smallest Runnable Goal
+
+<What should run by the end.>
+
+## Out of Scope
+
+- <What not to build yet>
+
+## Contract First
+
+- DTO / event / state shape: <contract>
+- Success path: <expected events/output>
+- Error/end behavior: <behavior>
+
+## Checkpoints
+
+1. <checkpoint and verification>
+2. <checkpoint and verification>
+3. <checkpoint and verification>
+
+## Source-to-Target Mapping
+
+| Original | Target | Note |
+| --- | --- | --- |
+| <source> | <target> | <caveat> |
+```
 
 ## Project Generation Pattern
 

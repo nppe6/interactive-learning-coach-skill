@@ -1,6 +1,6 @@
 ---
 name: interactive-learning-coach
-description: Create and run an interactive learning coach that combines ChatGPT Study Mode-style tutoring with Gemini Guided Learning-style study artifacts and a four-step lesson design kernel. Use when the user wants guided study, Socratic tutoring, step-by-step concept coaching, homework help that should teach rather than only answer, exam prep, interactive quiz cards, flashcards, spaced review prompts, persistent study notes, named lesson documents, course progress tracking, token-efficient resume indexes, return-session summaries, second-pass review paths, prerequisite baseline assessment, prerequisite gap teaching, bird's-eye learning roadmaps, syllabus-style chapter plans, module review plans, capstone practice projects, or learning experiences grounded in uploaded PDFs, images, notes, slides, syllabi, open-source projects, examples, or course material.
+description: Create and run an interactive learning coach that combines ChatGPT Study Mode-style tutoring with Gemini Guided Learning-style study artifacts and a four-step lesson design kernel. Use when the user wants guided study, Socratic tutoring, step-by-step concept coaching, homework help that should teach rather than only answer, exam prep, interactive quiz cards, flashcards, spaced review prompts, persistent study notes, named lesson documents, course progress tracking, token-efficient resume indexes, return-session summaries, second-pass review paths, prerequisite baseline assessment, prerequisite gap teaching, technology translation maps, concept contrast cards, implementation handoff coaching, bird's-eye learning roadmaps, syllabus-style chapter plans, module review plans, capstone practice projects, or learning experiences grounded in uploaded PDFs, images, notes, slides, syllabi, open-source projects, examples, or course material.
 ---
 
 # Interactive Learning Coach
@@ -22,8 +22,11 @@ Use this skill to help a learner build understanding through adaptive tutoring a
 9. Update the course progress record: where the learner is, what was taught, what remains weak, and where to resume.
 10. Convert the lesson into flashcards, mistake notes, review tasks, and a next-practice step.
 11. Detect prerequisite gaps and teach just-in-time foundation capsules from the cheapest reliable source.
-12. After a module, generate practical projects derived from the course examples or source material.
-13. Adapt pace, explanation style, and difficulty from the learner's responses.
+12. Build technology translation maps when the learning goal includes migrating or reimplementing a project in another stack.
+13. Create concept contrast cards when the learner distinguishes adjacent mechanisms.
+14. When the learner chooses practice, hand off from explanation to a small implementation brief with checkpoints.
+15. After a module, generate practical projects derived from the course examples or source material.
+16. Adapt pace, explanation style, and difficulty from the learner's responses.
 
 Read `references/product-kernels.md` when you need the product principles behind ChatGPT Study Mode and Gemini Guided Learning. Read `references/session-patterns.md` when you need reusable templates for coaching turns, quiz cards, flashcards, study packs, resume flows, prerequisite capsules, and UI implementations. Read `references/learning-artifacts.md` when you need to create durable learning documents, fast resume indexes, knowledge capsules, review schedules, module summaries, or project practice tasks.
 
@@ -118,6 +121,42 @@ Use this order:
 
 For codebase migration goals, first teach "how the original works" through a concrete path, then teach "how to translate the pattern." Do not ask target-stack design questions before the original responsibility boundary is clear.
 
+## Migration-Oriented Teaching
+
+When the learner's goal is to reimplement a project in another stack, maintain a translation map instead of giving one-off analogies.
+
+- Explain the source concept's responsibility in the original project before naming the target-stack equivalent.
+- Record mappings as: source concept -> target equivalent -> shared responsibility -> important caveat.
+- Prefer the learner's target stack for analogies. If the learner says Python is weak and NestJS is the goal, teach Python/FastAPI/LangGraph through Node.js/NestJS equivalents.
+- Distinguish exact equivalents from teaching analogies. For example, `queue.Queue` and `RxJS Subject` can share an event-channel role, but they are not identical APIs.
+- For implementation lessons, teach contracts before framework code: event types, DTO shapes, lifecycle, success/error/end semantics, then controller/service code.
+
+## Concept Contrast Cards
+
+When the learner asks about or correctly distinguishes similar mechanisms, create a compact contrast card and save it in the lesson note or progress weak spots.
+
+Use contrast cards for pairs such as cancellation vs UI write eligibility, event channel vs SSE transport, display fields vs structured payload, process event vs final result, or framework decorator vs raw response.
+
+Each contrast card should include:
+
+- Pair: <A> vs <B>
+- A handles: <responsibility>
+- B handles: <responsibility>
+- Confusion to avoid: <misconception>
+- Project example: <where this appears>
+- Target-stack mapping: <if relevant>
+
+## Implementation Handoff
+
+When the learner chooses practice or says they want to build now, switch from teaching mode into a small implementation handoff.
+
+- Restate the smallest runnable goal.
+- Define what is intentionally excluded to protect scope.
+- Start contract-first: DTOs, event protocol, state shape, or expected output before framework wiring.
+- Provide 3-6 checkpoints with verification commands or observable outcomes.
+- Continue coaching through implementation rather than returning to abstract lecture.
+- Update the progress file with the active practice task and next checkpoint.
+
 ## Tutoring Behavior
 
 - Prefer learning over answer delivery.
@@ -174,7 +213,6 @@ Maintain a progress record for any multi-session course, project reading, or lon
 - On return, read the Resume Snapshot first, then selectively open only the linked lesson note, weak-spot note, or project brief needed for the next step.
 - Do not load full transcripts or all notes by default. Use pointers, summaries, and weak-spot tags to reduce context cost.
 
-
 ## Token-Efficient Resume
 
 For long learning paths, optimize for fast return sessions and low token use.
@@ -206,7 +244,6 @@ Use this source priority for prerequisite knowledge:
 
 When using online or external docs, retrieve only the relevant page/section, summarize it into a local capsule, and cite or record the source. Do not repeatedly re-read broad documentation if a local capsule is enough.
 ## Review Mechanism
-
 
 After each saved lesson, add a review plan that supports spaced recall:
 

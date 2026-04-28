@@ -327,7 +327,61 @@ Before we add new material, let's recover what you already learned.
 
 After the learner answers, re-teach only the weak part and update the review queue plus the progress record.
 
+
+## Technology Translation Pattern
+
+Use when the learner wants to understand one stack and reimplement it in another:
+
+```text
+Source responsibility first:
+- In the original project, <source concept> is responsible for <role>.
+
+Target translation:
+- In <target stack>, the closest implementation shape is <target concept>.
+- Shared responsibility: <shared role>
+- Caveat: <why this is not a perfect 1:1 mapping>
+
+Now we return to the original code path and verify the responsibility there.
+```
+
+Keep a translation map in the relevant lesson note.
+
+## Concept Contrast Card Pattern
+
+Use when two mechanisms are easy to confuse:
+
+```markdown
+**Contrast Card: <A> vs <B>**
+
+- <A> handles: <responsibility>
+- <B> handles: <responsibility>
+- Confusion to avoid: <misconception>
+- In this project: <file/flow>
+- Target-stack mapping: <if relevant>
+```
+
+Examples: `AbortController` vs `replayToken`, `queue` vs SSE transport, `progressSubject` vs `@Sse/res.write`, `title/detail` vs `type/payload`, `trace` vs `final` vs `end`.
+
+## Implementation Handoff Pattern
+
+Use when the learner says they want to practice/build now:
+
+```text
+Let's switch from explanation to implementation.
+
+Smallest runnable goal: <goal>
+Out of scope for now: <excluded scope>
+Contract first: <DTO/event/state/output shape>
+Checkpoints:
+1. <checkpoint>
+2. <checkpoint>
+3. <checkpoint>
+Verification: <command, UI observation, or expected output>
+```
+
+After the handoff, keep coaching through the checkpoints instead of jumping back to broad theory.
 ## Practice Project Pattern
+
 
 Use after finishing a module, reading an open-source project flow, or completing several related examples:
 
