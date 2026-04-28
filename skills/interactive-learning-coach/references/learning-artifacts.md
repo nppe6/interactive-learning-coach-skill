@@ -12,6 +12,7 @@ Create or update a Markdown document when:
 - The user asks to save notes, produce a study guide, or continue later.
 - The session generates flashcards, quiz cards, a mistake log, or a review plan.
 - A multi-session learning path needs progress tracking, return-session support, or second-pass review.
+- A prerequisite concept blocks project learning and should be cached as a small reusable capsule.
 
 Do not create a document for a tiny one-off answer unless the user asks to save it.
 
@@ -34,6 +35,7 @@ Examples:
 ```text
 learning-notes/react-learning-roadmap.md
 learning-notes/react-learning-progress.md
+learning-notes/threejs-scene-camera-renderer.md
 learning-notes/react-hooks-useeffect.md
 learning-notes/vue-source-code-roadmap.md
 learning-notes/linear-algebra-eigenvalues.md
@@ -55,6 +57,11 @@ Keep the roadmap learner-facing. It should help the learner know what will be le
 ```markdown
 # <Course, Project, or Topic> Learning Roadmap
 
+## Progress File
+
+- Progress record: `<topic>-progress.md`
+- Resume rule: read the progress file first, then this roadmap row, then at most one linked lesson note.
+
 ## Learning Goal
 
 <What the learner wants to be able to understand or build.>
@@ -62,6 +69,19 @@ Keep the roadmap learner-facing. It should help the learner know what will be le
 ## Assumed Starting Level
 
 <Current level and known gaps.>
+
+## Learner Baseline
+
+- Overall level: <beginner / intermediate / advanced / unknown>
+- Learning mode: <from scratch / guided project reading / exam review / migration build>
+- Local references available: <notes, uploaded docs, bookmarks, prior capsules>
+- Diagnostic status: <self-rated / quick-checked / unknown>
+
+## Prerequisite Map
+
+| Prerequisite | Needed For | Learner Level | Evidence | Preferred Source | Capsule Note | Trigger |
+| --- | --- | --- | --- | --- | --- | --- |
+| <concept> | <chapter/lesson> | zero/aware/familiar/practiced | <self-rate or check> | local/cached/official/model-stable | `<capsule>.md` | before <lesson> |
 
 ## Bird's-Eye Overview
 
@@ -101,13 +121,10 @@ Keep the roadmap learner-facing. It should help the learner know what will be le
 - Mini project: <transfer task after several chapters>
 - Capstone: <module-level practical project>
 
-## Progress State
+## Progress Link
 
-- Current chapter: <chapter or lesson>
-- Last completed lesson: <lesson document>
-- Next resume point: <where to continue>
-- Current weak spots: <short list>
-- Recommended next mode: <continue / review / repair / second pass / project>
+- Progress record: `<topic>-progress.md`
+- Current status lives in the progress file, not in this roadmap.
 
 ## Review Queue
 
@@ -262,18 +279,40 @@ Use an index when a learning path has multiple documents.
 
 ## Progress Record Template
 
-Use this as a separate `<topic>-progress.md` file for long learning paths, or embed the same fields in the roadmap.
+Use this as the default separate `<topic>-progress.md` file for every multi-session learning path. Keep volatile session state here instead of in the roadmap.
 
 ```markdown
 # <Course, Project, or Topic> Progress
 
-## Current Position
+## Resume Snapshot
+
+Keep this section short. Read it first when resuming. It is the primary low-token entry point.
 
 - Current chapter: <chapter>
 - Current lesson: <lesson>
 - Last completed document: <path>
 - Next resume point: <specific next step>
+- Current weak spots: <short list>
+- Prerequisite gaps: <short list>
+- Prerequisite baseline: <zero/aware/familiar/practiced summary>
+- Open next: <1-3 files/notes only>
 - Recommended mode: <continue / review / repair / second pass / project>
+
+## Current Position
+
+<Optional detail if needed. Link out instead of duplicating full lesson notes.>
+
+## Prerequisite Profile
+
+| Concept | Level | Evidence | Source Preference | Capsule | Status |
+| --- | --- | --- | --- | --- | --- |
+| <concept> | zero/aware/familiar/practiced | <self-rate/check/dialogue> | local/cached/official/model-stable | `<capsule>.md` | needed/queued/done |
+
+## Capsule Queue
+
+| Capsule | Needed Before | Source To Use | Status |
+| --- | --- | --- | --- |
+| `<capsule>.md` | <lesson> | <local/cached/official/model-stable> | planned/done |
 
 ## Completed Lessons
 
@@ -296,9 +335,55 @@ Use this as a separate `<topic>-progress.md` file for long learning paths, or em
 - Deeper principles to add: <principles>
 ```
 
+## Prerequisite Capsule Template
+
+Use for just-in-time foundation concepts discovered during project learning. Keep it small and reusable.
+
+```markdown
+# <Prerequisite Concept>
+
+## Learner Baseline
+
+- Level for this concept: <zero / aware / familiar / practiced>
+- Evidence: <self-rating, diagnostic answer, or prior dialogue>
+
+## Why This Is Needed Now
+
+<Project lesson or code path this unlocks.>
+
+## Minimum Useful Idea
+
+<The smallest explanation needed to continue.>
+
+## Source
+
+- Local/project source: <file or note>
+- External/official source: <URL or title, if used>
+- Source status: <local / cached / official / model-stable>
+- Reuse decision: <reuse existing / create new / refresh from official docs>
+
+## Project Connection
+
+<How this concept appears in the current project.>
+
+## Tiny Example
+
+<Small example tied to the project.>
+
+## Check Question
+
+<One question to confirm readiness to return to the project.>
+
+## Reuse Tags
+
+- <topic>
+- <project>
+- <library/framework>
+```
+
 ## Return Session Pattern
 
-When the learner comes back, first read the roadmap/progress record and then choose a mode:
+When the learner comes back, first open `<topic>-progress.md` and read only the Resume Snapshot. Open the roadmap row and one linked note only if needed, then choose a mode:
 
 1. Continue: proceed from the next resume point.
 2. Review: run recall questions from completed lessons.

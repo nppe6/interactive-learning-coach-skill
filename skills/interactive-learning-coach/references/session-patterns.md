@@ -55,6 +55,11 @@ For each chapter, I will gradually add:
 
 I will save the roadmap as <learning-notes/topic-roadmap.md> and refine it as we learn.
 
+Before the first lesson, I will check prerequisite baseline:
+- Which required concepts are zero/fuzzy/familiar/practiced?
+- Do you have local notes, uploaded materials, or preferred docs for them?
+- Which prerequisite capsules should be inserted before project lessons?
+
 First lesson will start with:
 1. A minimal mental model.
 2. One concrete walkthrough.
@@ -62,6 +67,28 @@ First lesson will start with:
 ```
 
 If file writing is unavailable, output the roadmap as Markdown and name the intended file. If writing is available, re-open the file and verify the text is readable before continuing.
+
+## Prerequisite Baseline Intake Pattern
+
+Use after creating the first roadmap and before the first deep lesson:
+
+```text
+Before we start, I see these prerequisites will matter soon:
+
+1. <concept> - needed for <chapter/feature>
+2. <concept> - needed for <chapter/feature>
+3. <concept> - needed for <chapter/feature>
+
+For each one, tell me your level:
+- zero: never learned it
+- aware: heard of it, not confident
+- familiar: can understand examples
+- practiced: have built or solved with it
+
+Also tell me whether you have local notes, uploaded docs, course material, or preferred references for these topics.
+```
+
+If the learner is unsure, ask 1-3 diagnostic questions only for prerequisites needed in the next chapter. Record results in the roadmap Prerequisite Map and progress Prerequisite Profile.
 
 ## Project Teaching Startup Pattern
 
@@ -72,6 +99,7 @@ Today we are not migrating yet. First we need one reliable mental model of the o
 
 Lesson goal: <one thing the learner can explain after this lesson>
 Minimum viable understanding: <one sentence>
+Prerequisite check: <zero/fuzzy prerequisite to capsule first, if any>
 Walkthrough target: <one concrete request/flow and files to inspect>
 Migration lens: <what this will later become in the target stack>
 
@@ -194,10 +222,30 @@ Progress saved:
 - Evidence: <what the learner answered or built>
 - Weak spots: <misconceptions or uncertain areas>
 - Next resume point: <specific next step>
+- Prerequisite gaps: <missing foundations>
+- Prerequisite baseline updates: <level changes or new gaps>
+- Open next: <1-3 files/notes only>
 - Recommended next mode: <continue / review / repair / second pass / project>
 ```
 
-Update the roadmap or `<topic>-progress.md`. Keep it compact and do not paste a full transcript.
+Update `<topic>-progress.md` by default. Keep the roadmap stable and do not paste a full transcript.
+
+## Fast Resume Pattern
+
+Use when returning to an existing course/project. Optimize for low token use:
+
+```text
+I will resume from the separate progress file first.
+
+I will read:
++ `<topic>-progress.md` Resume Snapshot
++ Active roadmap chapter row
++ At most one linked lesson note or weak-spot note
+
+I will not load every previous note unless the progress file is missing, stale, or contradictory.
+```
+
+If the progress file snapshot is stale or too long, rewrite it before continuing.
 
 ## Return or Second-Pass Pattern
 
@@ -206,15 +254,44 @@ Use when the learner returns to the same project/course or asks to relearn it:
 ```text
 I found the previous progress record. Before we continue:
 
-Previously covered: <short summary>
+Previously covered: <short summary from Resume Snapshot>
 Last position: <chapter/lesson>
 Known weak spots: <weak spots from dialogue>
+Prerequisite gaps: <missing foundations>
+Next file/note to open: <one item>
 Recommended mode: <continue / review / repair / second pass / project>
 
 I will first recap the prior model, then ask one recall question. If the foundation is shaky, I will re-teach from first principles before adding new details.
 ```
 
 For a second pass, do not repeat the old lesson verbatim. Use prior dialogue as evidence: summarize, repair weak spots, add a clearer model, then deepen with new examples.
+
+## Prerequisite Capsule Pattern
+
+Use when the learner lacks a foundation concept needed for the current project lesson:
+
+```text
+We need a short prerequisite capsule before continuing.
+
+Missing concept: <concept>
+Learner level: <zero / aware / familiar / practiced>
+Why it matters here: <project feature/code path>
+Source I will use first: <local note / project docs / official docs / stable model knowledge>
+Source reason: <fastest reliable source with lowest token cost>
+Minimum useful idea: <1-3 sentence explanation>
+Tiny project-linked example: <example>
+Check question: <one light question>
+
+After this, we return to <project lesson>.
+```
+
+Source priority:
+1. User-provided/local materials and project examples.
+2. Existing learning notes or cached capsules.
+3. Official docs for version-sensitive libraries/APIs.
+4. General model knowledge for stable fundamentals only.
+
+Cache the result as a small note when it is likely to be reused, then update the Prerequisite Profile from zero/fuzzy to familiar when the learner passes the check question.
 
 ## Saved Lesson Note Pattern
 

@@ -1,4 +1,4 @@
 interface:
   display_name: "Interactive Learning Coach"
-  short_description: "Roadmapped tutoring with progress-aware review"
-  default_prompt: "Use $interactive-learning-coach to inspect the material, create a grounded roadmap, teach one minimal closed loop, track progress, support return sessions, save notes, schedule review, and create practice projects."
+  short_description: "Roadmapped tutoring with baselines and capsules"
+  default_prompt: "Use $interactive-learning-coach to create a roadmap, assess prerequisite baseline, track progress separately, fill zero-foundation gaps with reusable capsules, save notes, schedule review, and create projects."
